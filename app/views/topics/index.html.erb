@@ -18,7 +18,9 @@
   <tbody>
     <% @topics.each do |topic| %>
     <tr>
+      <td><%= topic.id %></td>
       <td><%= link_to topic.title, topic %></td>
+      <td><%= topic.votes.count %></td>
       
       <td><%= pluralize(topic.votes.count, "vote") %></td>
       <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>

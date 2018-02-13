@@ -11,7 +11,7 @@ require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'example.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Topics.new
+  t = Topic.new    
   t.id = row['id']
   t.title = row['title']
   t.description = row['description']
@@ -21,4 +21,4 @@ csv.each do |row|
   puts "#{t.title}, #{t.description} saved"
 end
 
-puts "There are now #{Topics.count} rows in the topics table"
+puts "There are now #{Topic.count} rows in the topics Table from Topic Model"
